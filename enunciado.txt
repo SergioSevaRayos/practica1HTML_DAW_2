@@ -2,6 +2,7 @@ Enunciado
 Realizar 5 hojas de código HTML de estilo libre utilizando las distintas etiquetas
 vistas en clase.
 Al menos, deberá contener:
+
 1. Una hoja con un formulario que incluya los siguientes campos
 a. Nombre
 b. Apellidos
@@ -16,5 +17,6 @@ contraseña.
 3. Una lista con enlaces (<a></a>) al resto de hojas incluida en cada una de las
 hojas para poder navegar entre ellas. (Se puede copiar y pegar la misma lista en
 todas las hojas).
+
 4. El resto de hojas serán de estilo libre.
 
