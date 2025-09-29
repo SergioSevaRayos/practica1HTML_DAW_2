@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Documentos</title>
+    <link rel="shortcut icon" href="logoSTTblanco.webp" type="image/x-icon">
 </head>
 <header>
     <nav>
@@ -15,9 +17,32 @@
     </nav>
     <hr>
 </header>
+
 <body>
-    <h1>Hoja 3</h1>
-    <h3>Documentos</h3>
-    
+    <main>
+        <h1>Hoja 3</h1>
+        <div class="contenedor-archivos">
+            <h2>Documentos</h2>
+            <form id="formulario-documentos" action="ruta-almacenamiento" method="post" enctype="multipart/form-data">
+                <input type="file" id="archivoUsuario" name="archivo_subido" accept=".pdf,.doc,.docx,image/*">
+                <button type="submit">Subir Archivo</button>
+            </form>
+        </div>
+        <hr>
+        <details>
+            <summary>Instrucciones para subir documentos</summary>
+            <p>1. Haz clic en el botón "Elegir archivo" para abrir el explorador de archivos de tu dispositivo.</p>
+            <p>2. Navega hasta la ubicación donde tienes guardado el documento que deseas subir.</p>
+            <p>3. Selecciona el archivo haciendo clic sobre él y luego haz clic en "Abrir".</p>
+            <p>4. Una vez seleccionado, verás el nombre del archivo junto al botón de selección.</p>
+            <p>5. Finalmente, haz clic en el botón "Subir Archivo" para enviar el documento al servidor.</p>
+            <p>6. Espera a que se complete la subida y verifica que el archivo se haya subido correctamente.</p>
+        </details>
+    </main>
+    <hr>
+    <footer>
+        <p>Footer</p>
+    </footer>
 </body>
+
 </html>

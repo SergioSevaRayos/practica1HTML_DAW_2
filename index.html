@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Formulario</title>
+    <link rel="shortcut icon" href="logoSTTblanco.webp" type="image/x-icon">
 </head>
 <header>
     <nav>
@@ -15,27 +17,62 @@
     </nav>
     <hr>
 </header>
+
 <body>
-    <h1>Hoja 1</h1>
-    <h2>Formulario</h2>
-    <form action="">
-        <label for="nombre">Nombre:</label><input type="text" id="nombre" >
-        <hr>
-        <label for="apellidos">Apellidos:</label><input type="text" id="apellidos">
-        <hr>
-        <label for="contraseña">Contraseña:</label><input type="text" id="contraseña">        
-        <hr>
-        <label for="telefono">Teléfono:</label><input type="text" id="telefono">      
-        <hr>
-        <label for="email">Email:</label><input type="text" id="email">
-        <hr>
-        <input type="radio" id="hombre" name="hombre">
-        <label for="hombre">Hombre</label>
-        <input type="radio" id="mujer" name="mujer">
-        <label for="mujer">Mujer</label>
-        <input type="radio" id="indeterminado" name="indeterminado">
-        <label for="indeterminado">Indeterminado</label>
-        <hr>
-    </form>
+    <main>
+        <div class="contenedor-formulario">
+            <h1>Hoja 1</h1>
+            <h2>Formulario</h2>
+            <form action="">
+                <label for="nombre">Nombre:</label><input type="text" id="nombre">
+                <hr>
+                <label for="apellidos">Apellidos:</label><input type="text" id="apellidos">
+                <hr>
+                <label for="contraseña">Contraseña:</label><input type="text" id="contraseña">
+                <hr>
+                <label for="telefono">Teléfono:</label>
+
+                <select id="prefijo" name="prefijo" id="">
+                    <option value="">Prefijo</option>
+                    <option value="+34">ES +34</option>
+                    <option value="+52">MX +52</option>
+                    <option value="+54">AR +54</option>
+                    <option value="+1">US +1</option>
+                </select><input type="text" id="telefono">
+
+                <hr>
+                <label for="email">Email:</label><input type="text" id="email">
+
+                <hr>
+                <input type="radio" id="hombre" name="hombre">
+                <label for="hombre">Hombre</label>
+                <input type="radio" id="mujer" name="mujer">
+                <label for="mujer">Mujer</label>
+                <input type="radio" id="indeterminado" name="indeterminado">
+                <label for="indeterminado">Indeterminado</label>
+                <hr>
+            </form>
+        </div>
+        <aside>
+            <h3>Ayuda para completar el formulario</h3>
+            <ul>
+                <li>El <strong>nombre</strong> y los <strong>apellidos</strong> deben conincidir con los de tu documento
+                    de
+                    identidad.</li>
+                <li>La <strong>contraseña</strong> debe tener mínimo 8 caracteres combinando símbolos, números,
+                    mayúsculas y
+                    minúsculas.</li>
+                <li>El <strong>teléfono</strong> debe incluir el prefijo internacional (+34 para España).</li>
+                <li>El <strong>email</strong> debe ser válido.</li>
+                <li></li>
+            </ul>
+        </aside>
+    </main>
+    <hr>
+<footer>
+        <p>Footer</p>
+    </footer>
 </body>
+
+
 </html>
