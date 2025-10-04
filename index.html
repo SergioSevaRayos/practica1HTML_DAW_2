@@ -24,13 +24,16 @@
             <h1>Hoja 1</h1>
             <h2>Formulario</h2>
             <form action="">
-                <label for="nombre">Nombre:</label><input type="text" id="nombre">
-                <hr>
-                <label for="apellidos">Apellidos:</label><input type="text" id="apellidos">
-                <hr>
-                <label for="contraseña">Contraseña:</label><input type="text" id="contraseña">
-                <hr>
-                <label for="telefono">Teléfono:</label>
+                <label for="nombre">Nombre: </label><input type="text" id="nombre">
+                <br>
+                <br>
+                <label for="apellidos">Apellidos: </label><input type="text" id="apellidos">
+                <br>
+                <br>
+                <label for="contraseña">Contraseña: </label><input type="text" id="contraseña">
+                <br>
+                <br>
+                <label for="telefono">Teléfono: </label>
 
                 <select id="prefijo" name="prefijo" id="">
                     <option value="">Prefijo</option>
@@ -39,11 +42,11 @@
                     <option value="+54">AR +54</option>
                     <option value="+1">US +1</option>
                 </select><input type="text" id="telefono">
-
-                <hr>
-                <label for="email">Email:</label><input type="text" id="email">
-
-                <hr>
+                <br>
+                <br>
+                <label for="email">Email: </label><input type="text" id="email">
+                <br>
+                <br>
                 <input type="radio" id="hombre" name="hombre">
                 <label for="hombre">Hombre</label>
                 <input type="radio" id="mujer" name="mujer">
@@ -53,23 +56,38 @@
                 <hr>
             </form>
         </div>
-        <aside>
-            <h3>Ayuda para completar el formulario</h3>
-            <ul>
-                <li>El <strong>nombre</strong> y los <strong>apellidos</strong> deben conincidir con los de tu documento
-                    de
-                    identidad.</li>
-                <li>La <strong>contraseña</strong> debe tener mínimo 8 caracteres combinando símbolos, números,
-                    mayúsculas y
-                    minúsculas.</li>
-                <li>El <strong>teléfono</strong> debe incluir el prefijo internacional (+34 para España).</li>
-                <li>El <strong>email</strong> debe ser válido.</li>
-                <li></li>
-            </ul>
-        </aside>
+        <h2>Instrucciones del formulario</h2>
+        <dl>
+            <dt>
+                <strong>Nombre y apellidos</strong>
+            <dd>Deben coincidir con los de tu documento de identidad.</dd>
+            <br>
+            </dt>
+            <dt>
+                <strong>Contraseña</strong>
+            <dd>Debe tener como mínimo 8 caracteres alfanúmericos y símbolos.</dd>
+            <br>
+            </dt>
+            <dt>
+                <strong>Teléfono</strong>
+            <dd>Debe incluir el prefifo internacional (+34 para España).</dd>
+            <br>
+            </dt>
+
+            <dt>
+                <strong>Email</strong>
+            <dd>Debe ser válido.</dd>
+            <br>
+            </dt>
+            
+            <dt>
+                <strong>Sexo</strong>
+                <dd>Establece tu sexo correctamente.</dd>
+            </dt>
+        </dl>
     </main>
     <hr>
-<footer>
+    <footer>
         <p>Footer</p>
     </footer>
 </body>
