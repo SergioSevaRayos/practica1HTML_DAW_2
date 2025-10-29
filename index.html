@@ -8,18 +8,22 @@
     <link rel="shortcut icon" href="logoSTTblanco.webp" type="image/x-icon">
 </head>
 <header>
+    <!--Sistema de navegación-->
     <nav>
-        <a href="#">Hoja 1</a> 
-        <a href="hoja2.html">Hoja 2</a>
-        <a href="hoja3.html">Hoja 3</a>
-        <a href="hoja4.html">Hoja 4</a>
-        <a href="hoja5.html">Hoja 5</a>
+        <ul>
+            <li><a href="#">Hoja 1</a> </li>
+            <li><a href="hoja2.html">Hoja 2</a></li>
+            <li><a href="hoja3.html">Hoja 3</a></li>
+            <li><a href="hoja4.html">Hoja 4</a></li>
+            <li><a href="hoja5.html">Hoja 5</a></li>
+        </ul>
     </nav>
     <hr>
 </header>
 
 <body>
     <main>
+        <!--Formulario para la introducción de los datos-->
         <div class="contenedor-formulario">
             <h1>Hoja 1</h1>
             <h2>Formulario</h2>
@@ -56,40 +60,45 @@
                 <hr>
             </form>
         </div>
-        <h2>Instrucciones del formulario</h2>
-        <dl>
-            <dt>
-                <strong>Nombre y apellidos</strong>
-            <dd>Deben coincidir con los de tu documento de identidad.</dd>
-            <br>
-            </dt>
-            <dt>
-                <strong>Contraseña</strong>
-            <dd>Debe tener como mínimo 8 caracteres alfanúmericos y símbolos.</dd>
-            <br>
-            </dt>
-            <dt>
-                <strong>Teléfono</strong>
-            <dd>Debe incluir el prefifo internacional (+34 para España).</dd>
-            <br>
-            </dt>
+        <!--Sección con instruccines para cumplimentar de manera correcta el formulario-->
+        <div class="instrucciones-formulario">
+            <h2>Instrucciones del formulario</h2>
+            <dl>
+                <dt>
+                    <strong>Nombre y apellidos</strong>
+                <dd>Deben coincidir con los de tu documento de identidad.</dd>
+                <br>
+                </dt>
+                <dt>
+                    <strong>Contraseña</strong>
+                <dd>Debe tener como mínimo 8 caracteres alfanúmericos y símbolos.</dd>
+                <br>
+                </dt>
+                <dt>
+                    <strong>Teléfono</strong>
+                <dd>Debe incluir el prefifo internacional (+34 para España).</dd>
+                <br>
+                </dt>
 
-            <dt>
-                <strong>Email</strong>
-            <dd>Debe ser válido.</dd>
-            <br>
-            </dt>
-            
-            <dt>
-                <strong>Sexo</strong>
+                <dt>
+                    <strong>Email</strong>
+                <dd>Debe ser válido.</dd>
+                <br>
+                </dt>
+
+                <dt>
+                    <strong>Sexo</strong>
                 <dd>Establece tu sexo correctamente.</dd>
-            </dt>
-        </dl>
+                </dt>
+            </dl>
+        </div>
+
     </main>
     <hr>
     <footer>
         <p>Footer</p>
     </footer>
+    <!--Llamada al script principal de la aplicación-->
     <script src="js/script.js"></script>
 </body>
 

@@ -8,12 +8,15 @@
     <link rel="shortcut icon" href="logoSTTblanco.webp" type="image/x-icon">
 </head>
 <header>
+    <!--Sistema de navegación-->
     <nav>
-        <a href="index.html">Hoja 1</a>
-        <a href="hoja2.html">Hoja 2</a>
-        <a href="hoja3.html">Hoja 3</a>
-        <a href="#">Hoja 4</a>
-        <a href="hoja5.html">Hoja 5</a>
+        <ul>
+            <li><a href="#">Hoja 1</a> </li>
+            <li><a href="hoja2.html">Hoja 2</a></li>
+            <li><a href="hoja3.html">Hoja 3</a></li>
+            <li><a href="hoja4.html">Hoja 4</a></li>
+            <li><a href="hoja5.html">Hoja 5</a></li>
+        </ul>
     </nav>
     <hr>
 </header>
@@ -21,9 +24,11 @@
 <body>
     <main>
         <h1>Hoja 4</h1>
-        <h2>Resumen datos</h2>
+        <!--Seección con la tabla con el resumen de los datos-->
         <div class="contenedor-tabla">
-            <table id="mi-tabla-datos">
+            <h2>Resumen datos</h2>
+            <hr>
+            <table id="mi-tabla-datos-resumen">
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -33,20 +38,13 @@
                         <th>Sexo</th>
                     </tr>
                 </thead>
-                <tbody id="cuerpo-tabla-documentos">
-                    <!--Datos de ejemplo-->
-                    <tr>
-                        <td>Sergio</td>
-                        <td>Seva Rayos</td>
-                        <td>633841203</td>
-                        <td>sergiosevarayos@gmail.com</td>
-                        <td>Hombre</td>
-                    </tr>
+                <tbody id="cuerpo-tabla-resumen">
 
                 </tbody>
             </table>
             <hr>
             <h2>Resumen archivos</h2>
+            <!--Sección con la tabla con el resumen de los archivos subidos-->
             <table id="mi-tabla-documentos">
 
                 <thead>
@@ -72,6 +70,8 @@
     <footer>
         <p>Footer</p>
     </footer>
+    <!--Llamada al script principal de la aplicación-->
+    <script src="js/script.js"></script>
 </body>
 
 </html>
