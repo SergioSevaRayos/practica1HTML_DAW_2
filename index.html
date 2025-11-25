@@ -27,39 +27,33 @@
         <div class="contenedor-formulario">
             <h1>Hoja 1</h1>
             <h2>Formulario</h2>
-            <form action="">
-                <label for="nombre">Nombre: </label><input type="text" id="nombre">
+            <form method="post" action="ws/crearUsuario.php">
+                <label for="nombre">Nombre: </label><input type="text" id="nombre" name="nombre">
                 <br>
                 <br>
-                <label for="apellidos">Apellidos: </label><input type="text" id="apellidos">
+                <label for="apellido">Apellidos: </label><input type="text" id="apellido" name="apellido">
                 <br>
                 <br>
-                <label for="contraseña">Contraseña: </label><input type="text" id="contraseña">
+                <label for="contrasena">Contraseña: </label><input type="text" id="contrasena" name="contrasena">
                 <br>
                 <br>
-                <label for="telefono">Teléfono: </label>
-
-                <select id="prefijo" name="prefijo" id="">
-                    <option value="">Prefijo</option>
-                    <option value="+34">ES +34</option>
-                    <option value="+52">MX +52</option>
-                    <option value="+54">AR +54</option>
-                    <option value="+1">US +1</option>
-                </select><input type="text" id="telefono">
+                <label for="telefono">Teléfono: </label><input type="text" id="telefono" name="telefono">
                 <br>
                 <br>
-                <label for="email">Email: </label><input type="text" id="email">
+                <label for="email">Email: </label><input type="text" id="email" name="email">
                 <br>
                 <br>
-                <input type="radio" id="hombre" name="sexo">
+                <input type="radio" id="hombre" name="sexo" value="hombre">
                 <label for="hombre">Hombre</label>
-                <input type="radio" id="mujer" name="sexo">
+                <input type="radio" id="mujer" name="sexo" value="mujer">
                 <label for="mujer">Mujer</label>
-                <input type="radio" id="indeterminado" name="sexo">
+                <input type="radio" id="indeterminado" name="sexo" value="indeterminado">
                 <label for="indeterminado">Indeterminado</label>
-                <hr>
+                <button type="submit">Guardar</button>
             </form>
+            
         </div>
+        <hr>
         <!--Sección con instruccines para cumplimentar de manera correcta el formulario-->
         <div class="instrucciones-formulario">
             <h2>Instrucciones del formulario</h2>
