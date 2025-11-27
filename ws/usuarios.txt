@@ -2,3 +2,5 @@
 {"nombre":"SERGIO","apellido":"SEVA","contrasena":"1234","telefono":"633841203","email":"sergiosevarayos@gmail.com","sexo":"hombre"}
 {"nombre":"Miriam","apellido":"Alonso","contrasena":"1234","telefono":"620461113","email":"alonsomoriana@gmail.com","sexo":"mujer"}
 {"nombre":"Rosa","apellido":"Rayos","contrasena":"3456","telefono":"696519252","email":"rosariorayossaez@gmail.com","sexo":"indeterminado"}
+{"nombre":"asdas","apellido":"asdf","contrasena":"sdafa","telefono":"620461113","email":"alonsomoriana@gmail.com","sexo":"mujer"}
+{"nombre":"werwer","apellido":"werwe","contrasena":"werwer","telefono":"633841203","email":"sergiosevarayos@gmail.com","sexo":"indeterminado"}
