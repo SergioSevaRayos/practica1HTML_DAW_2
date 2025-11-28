@@ -8,7 +8,6 @@
     <link rel="shortcut icon" href="logoSTTblanco.webp" type="image/x-icon">
 </head>
 <header>
-    <!--Sistema de navegación-->
     <nav>
         <ul>
             <li><a href="#">Hoja 1</a> </li>
@@ -23,25 +22,10 @@
 
 <body>
     <main>
-        <!--Formulario para la introducción de los datos-->
         <div class="contenedor-formulario">
             <h1>Hoja 1</h1>
             <h2>Formulario</h2>
-            <!-- 
-            El formulario consta de los siguientes elementos:
-                - method="POST": envía los datos en el cuerpo de la petición HTTP y no en la url
-                - method="GET": envía los datos como parámetros en la url (no para información sensible)
-                - method="DIALOG": cierra un dialog y devuelve un valor sin enviar nada al servidor
-                - action="ws/crearUsuario.php": indica donde se envían los datos del formulario cuando 
-                    el usuario pulsa "enviar". Si no se especifíca, el formulario se envía a la misma url
-                
-                - label: sirve para asociar un texto descriptivo a un campo del formulario
-                - for: conecta el label (for="nombre") con el input correspondiente (id="nombre")
-                - input: es el control del formulario donde el usuario escribe o selecciona algo
-                - type="text": permite escribir texto libre. Para una contraseña se usa (type="password" )
-                - id: identifica el elemento de fomra única. Conecta el input con el label
-                - name: es el atributo que importa para el servidor. El backend recibe los datos usando el "name"
-            -->
+
             <form method="post" action="ws/crearUsuario.php">
                 <label for="nombre">Nombre: </label><input type="text" id="nombre" name="nombre">
                 <br>
@@ -60,19 +44,18 @@
                 <br>
                 <input type="radio" id="hombre" name="sexo" value="hombre">
                 <label for="hombre">Hombre</label>
-
                 <input type="radio" id="mujer" name="sexo" value="mujer">
                 <label for="mujer">Mujer</label>
-
                 <input type="radio" id="indeterminado" name="sexo" value="indeterminado">
                 <label for="indeterminado">Indeterminado</label>
-
+                <br>
+                <br>
                 <button type="submit">Guardar</button>
             </form>
             
         </div>
         <hr>
-        <!--Sección con instruccines para cumplimentar de manera correcta el formulario-->
+
         <div class="instrucciones-formulario">
             <h2>Instrucciones del formulario</h2>
             <dl>
@@ -110,7 +93,7 @@
     <footer>
         <p>Footer</p>
     </footer>
-    <!--Llamada al script principal de la aplicación-->
+
     <script src="js/script.js"></script>
 </body>
 

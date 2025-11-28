@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../interfaces/IToJson.php';
 class User implements IToJson
 {
-    // Atributos
     private $nombre;
     private $apellido;
     private $contrasena;
@@ -10,7 +9,6 @@ class User implements IToJson
     private $email;
     private $sexo;
 
-    // Constructor
     public function __construct($nombre, $apellido, $contrasena, $telefono, $email, $sexo)
     {
         $this->nombre = $nombre;
@@ -21,7 +19,6 @@ class User implements IToJson
         $this->sexo = $sexo;
     }
 
-    // Getters
     public function getNombre()
     {
         return $this->nombre;
@@ -47,7 +44,6 @@ class User implements IToJson
         return $this->sexo;
     }
 
-    // Setters
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
@@ -73,7 +69,6 @@ class User implements IToJson
         $this->sexo = $sexo;
     }
 
-    // Interfaz
     public function toJson()
     {
         return json_encode(get_object_vars($this));
