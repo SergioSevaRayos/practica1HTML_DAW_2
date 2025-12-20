@@ -5,7 +5,7 @@ require_once './models/User.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
 
     $nombre     = $_POST['nombre']     ?? null; 
-    $apellido  = $_POST['apellido']    ?? null;   
+    $apellido   = $_POST['apellido']   ?? null;   
     $contrasena = $_POST['contrasena'] ?? null;
     $telefono   = $_POST['telefono']   ?? null;
     $email      = $_POST['email']      ?? null;

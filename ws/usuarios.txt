@@ -1,0 +1,3 @@
+{"nombre":"SERGIO","apellido":"SEVA RAYOS","contrasena":"1234","telefono":"666666","email":"sergiosevarayos@gmail.com","sexo":"hombre"}
+{"nombre":"SERGIO","apellido":"SEVA RAYOS","contrasena":"sdfsdf","telefono":"666666","email":"sergiosevarayos@gmail.com","sexo":"hombre"}
+{"nombre":"SERGIO","apellido":"SEVA RAYOS","contrasena":"sdfsdf","telefono":"666666","email":"sergiosevarayos@gmail.com","sexo":"hombre"}
