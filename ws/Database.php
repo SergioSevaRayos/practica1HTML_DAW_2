@@ -2,43 +2,30 @@
 
 class Database
 {
-    // Datos de conexión
-    private string $host = "127.0.0.1";
-    private string $dbname = "colegio";
-    private string $user = "root";
-    private string $password = "";
+    private static ?PDO $connection = null;
 
-    // Objeto PDO
-    private ?PDO $connection = null;
-
-    // Constructor: crea la conexión PDO
-    public function __construct()
+    public static function getConnection(): PDO
     {
-        $dsn = "mysql:host={$this->host};dbname={$this->dbname};charset=utf8mb4";
+        if (self::$connection === null) {
+            $host = "localhost";
+            $dbname = "colegio";
+            $user = "colegio_user";
+            $password = "colegio123";
 
-        $options = [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::ATTR_EMULATE_PREPARES => false
-        ];
+            $dsn = "mysql:host=127.0.0.1;port=3306;dbname=$dbname;charset=utf8mb4";
 
-        try {
-            $this->connection = new PDO(
+
+            self::$connection = new PDO(
                 $dsn,
-                $this->user,
-                $this->password,
-                $options
-            );
-        } catch (PDOException $e) {
-            throw new RuntimeException(
-                "Error al conectar con la base de datos: " . $e->getMessage()
+                $user,
+                $password,
+                [
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+                ]
             );
         }
-    }
 
-    // Devuelve la conexión PDO
-    public function getConnection(): PDO
-    {
-        return $this->connection;
+        return self::$connection;
     }
 }

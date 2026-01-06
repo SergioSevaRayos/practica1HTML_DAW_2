@@ -7,23 +7,13 @@
     <title>Datos</title>
     <link rel="shortcut icon" href="logoSTTblanco.webp" type="image/x-icon">
 </head>
-<header>
+<link rel="stylesheet" href="styles.css">
+<header id="navbar"></header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Hoja 1</a> </li>
-            <li><a href="#">Hoja 2</a></li>
-            <li><a href="hoja3.html">Hoja 3</a></li>
-            <li><a href="hoja4.html">Hoja 4</a></li>
-            <li><a href="hoja5.html">Hoja 5</a></li>
-        </ul>
-    </nav>
-    <hr>
-</header>
 
 <body>
     <main>
-        <h1>Hoja 2</h1>
+
 
         <div class="contenedor-tabla">
             <h2>Datos</h2>
@@ -36,18 +26,54 @@
                         </th>
                     </tr>
                     <tr>
-                        <th>Acciones</th>
                         <th>Nombre</th>
                         <th>Apellidos</th>
                         <th>Teléfono</th>
                         <th>Email</th>
                         <th>Sexo</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody id="cuerpo-tabla">
 
                 </tbody>
             </table>
+            <form id="form-editar" style="display:none; margin-top:20px;">
+                <h3>Editar alumno</h3>
+
+                <input type="hidden" id="edit-id">
+
+                <label>
+                    Nombre:
+                    <input type="text" id="edit-nombre" required>
+                </label><br>
+
+                <label>
+                    Apellidos:
+                    <input type="text" id="edit-apellidos" required>
+                </label><br>
+                <label>
+                    Telefono:
+                    <input type="text" id="edit-telefono">
+                </label><br>
+                <label>
+                    Email:
+                    <input type="text" id="edit-email">
+                </label><br>
+                <label>
+                    Sexo:
+                    <input type="text" id="edit-sexo">
+                </label><br>
+
+                <label>
+                    Fecha nacimiento:
+                    <input type="date" id="edit-fecha">
+                </label><br><br>
+
+                <button type="submit">Guardar cambios</button>
+                <button type="button" id="cancelar-edicion">Cancelar</button>
+            </form>
+
         </div>
 
     </main>
@@ -57,7 +83,9 @@
         <p>Footer</p>
     </footer>
 
-    <script src="js/script.js"></script>
+
 </body>
+<script src="js/script.js"></script>
+<script src="js/nav.js"></script>
 
 </html>

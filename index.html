@@ -7,96 +7,76 @@
     <title>Formulario</title>
     <link rel="shortcut icon" href="logoSTTblanco.webp" type="image/x-icon">
 </head>
-<header>
-    <nav>
-        <ul>
-            <li><a href="#">Hoja 1</a> </li>
-            <li><a href="hoja2.html">Hoja 2</a></li>
-            <li><a href="hoja3.html">Hoja 3</a></li>
-            <li><a href="hoja4.html">Hoja 4</a></li>
-            <li><a href="hoja5.html">Hoja 5</a></li>
-        </ul>
-    </nav>
-    <hr>
-</header>
+<link rel="stylesheet" href="styles.css">
+<header id="navbar"></header>
 
 <body>
     <main>
-        <div class="contenedor-formulario">
-            <h1>Hoja 1</h1>
-            <h2>Formulario</h2>
+        <div class="formulario-principal">
+            <div class="contenedor-formulario">
+                <h1>Hoja 1</h1>
+                <h2>Formulario</h2>
 
-            <form method="post" action="ws/crearUsuario2.php">
+                <form method="post" action="ws/crearUsuario2.php">
 
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-                <br><br>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                    <br><br>
 
-                <label for="apellidos">Apellidos:</label>
-                <input type="text" id="apellidos" name="apellido" required>
-                <br><br>
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" id="apellidos" name="apellido" required>
+                    <br><br>
 
-                <label for="contrasena">Contraseña:</label>
-                <input type="password" id="contrasena" name="contrasena" required>
-                <br><br>
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" id="contrasena" name="contrasena" required>
+                    <br><br>
 
-                <label for="telefono">Teléfono:</label>
-                <input type="text" id="telefono" name="telefono">
-                <br><br>
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" id="telefono" name="telefono">
+                    <br><br>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
-                <br><br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                    <br><br>
 
-                <label>Sexo:</label>
-                <input type="radio" id="hombre" name="sexo" value="H">
-                <label for="hombre">Hombre</label>
+                    <label>Sexo:</label>
+                    <div class="grupo-radio">
+                        <label><input type="radio" name="sexo" value="H"> Hombre</label>
+                        <label><input type="radio" name="sexo" value="M"> Mujer</label>
+                        <label><input type="radio" name="sexo" value="I"> Indeterminado</label>
+                    </div>
+                    <br><br>
 
-                <input type="radio" id="mujer" name="sexo" value="M">
-                <label for="mujer">Mujer</label>
+                    <button type="submit">Guardar</button>
+                </form>
 
-                <input type="radio" id="indeterminado" name="sexo" value="I">
-                <label for="indeterminado">Indeterminado</label>
-                <br><br>
 
-                <button type="submit">Guardar</button>
-            </form>
+            </div>
+            <hr>
 
+            <div class="instrucciones-formulario">
+                <h2>Instrucciones del formulario</h2>
+
+                <dl>
+                    <dt><strong>Nombre y apellidos</strong></dt>
+                    <dd>Deben coincidir con los de tu documento de identidad.</dd>
+
+                    <dt><strong>Contraseña</strong></dt>
+                    <dd>Debe tener como mínimo 8 caracteres alfanuméricos y símbolos.</dd>
+
+                    <dt><strong>Teléfono</strong></dt>
+                    <dd>Debe ser un número de teléfono válido.</dd>
+
+                    <dt><strong>Email</strong></dt>
+                    <dd>Debe ser válido.</dd>
+
+                    <dt><strong>Sexo</strong></dt>
+                    <dd>Establece tu sexo correctamente.</dd>
+                </dl>
+            </div>
 
         </div>
-        <hr>
 
-        <div class="instrucciones-formulario">
-            <h2>Instrucciones del formulario</h2>
-            <dl>
-                <dt>
-                    <strong>Nombre y apellidos</strong>
-                <dd>Deben coincidir con los de tu documento de identidad.</dd>
-                <br>
-                </dt>
-                <dt>
-                    <strong>Contraseña</strong>
-                <dd>Debe tener como mínimo 8 caracteres alfanúmericos y símbolos.</dd>
-                <br>
-                </dt>
-                <dt>
-                    <strong>Teléfono</strong>
-                <dd>Debe incluir el prefifo internacional (+34 para España).</dd>
-                <br>
-                </dt>
-
-                <dt>
-                    <strong>Email</strong>
-                <dd>Debe ser válido.</dd>
-                <br>
-                </dt>
-
-                <dt>
-                    <strong>Sexo</strong>
-                <dd>Establece tu sexo correctamente.</dd>
-                </dt>
-            </dl>
-        </div>
 
     </main>
     <hr>
@@ -106,6 +86,8 @@
 
     <script src="js/script.js"></script>
 </body>
+<script src="js/nav.js"></script>
+
 
 
 </html>

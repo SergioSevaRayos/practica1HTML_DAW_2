@@ -1,73 +1,65 @@
 <?php
+require_once "Database.php";
+
 header("Content-Type: application/json");
 
-require_once __DIR__ . "/User.php";
-
 try {
-    if (!isset($_GET["id"])) {
+    // Leer datos enviados por POST
+    $id = $_POST["id"] ?? null;
+    $nombre = $_POST["nombre"] ?? null;
+    $apellidos = $_POST["apellidos"] ?? null;
+    $telefono = $_POST["telefono"] ?? null;
+    $email = $_POST["email"] ?? null;
+    $sexo = $_POST["sexo"] ?? null;
+    $fecha = $_POST["fecha_nacimiento"] ?? null;
+
+    // Validación mínima
+    if (!$nombre || !$apellidos) {
         echo json_encode([
             "success" => false,
-            "message" => "Falta el parámetro id",
-            "data" => null
+            "message" => "Datos incompletos"
         ]);
         exit;
     }
 
-    $id = (int) $_GET["id"];
+    // Conexión a la base de datos
+    $db = Database::getConnection();
 
-    $user = new User();
+    // Consulta SQL (solo los campos que editas)
+    $sql = "
+        UPDATE alumno
+        SET nombre = :nombre,
+            apellidos = :apellidos,
+            telefono = :telefono,
+            email = :email,
+            sexo = :sexo,
+            fecha_nacimiento = :fecha
+        WHERE id = :id
+    ";
 
-    $alumnoActual = $user->getById($id);
+    $stmt = $db->prepare($sql);
 
-    if (!$alumnoActual) {
-        echo json_encode([
-            "success" => false,
-            "message" => "No existe el alumno con id $id",
-            "data" => null
-        ]);
-        exit;
-    }
+    // Bind de parámetros
+    $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+    $stmt->bindParam(":nombre", $nombre, PDO::PARAM_STR);
+    $stmt->bindParam(":apellidos", $apellidos, PDO::PARAM_STR);
+    $stmt->bindParam(":telefono", $telefono, PDO::PARAM_STR);
+    $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+    $stmt->bindParam(":sexo", $sexo, PDO::PARAM_STR);
+    $stmt->bindParam(":fecha", $fecha, PDO::PARAM_STR);
 
-    $mapeo = [
-        "nombre" => "nombre",
-        "apellido" => "apellidos",    // Recibe 'apellido' de POST, guarda en 'apellidos' de DB
-        "contrasena" => "password",   // Recibe 'contrasena' de POST, guarda en 'password' de DB
-        "telefono" => "telefono",
-        "email" => "email",
-        "sexo" => "sexo"
-    ];
+    // Ejecutar
+    $stmt->execute();
 
-    $datosActualizar = [];
-
-    foreach ($mapeo as $postKey => $dbColumn) {
-        if (isset($_POST[$postKey]) && $_POST[$postKey] !== "") {
-            $datosActualizar[$dbColumn] = $_POST[$postKey];
-        }
-    }
-
-    if (empty($datosActualizar)) {
-        echo json_encode([
-            "success" => false,
-            "message" => "No se envió ningún dato para actualizar",
-            "data" => null
-        ]);
-        exit;
-    }
-
-    $user->update($id, $datosActualizar);
-
-    $alumnoModificado = $user->getById($id);
-
+    // Respuesta OK
     echo json_encode([
         "success" => true,
-        "message" => "Alumno actualizado correctamente",
-        "data" => $alumnoModificado
+        "message" => "Alumno modificado correctamente"
     ]);
 
-} catch (Throwable $e) {
+} catch (PDOException $e) {
     echo json_encode([
         "success" => false,
-        "message" => $e->getMessage(),
-        "data" => null
+        "message" => "Error en BD: " . $e->getMessage()
     ]);
 }
