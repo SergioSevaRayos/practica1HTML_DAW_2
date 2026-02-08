@@ -5,10 +5,11 @@
 
 /* RESET BÁSICO */
 body {
-    background: #c0c0c0;
-    font-family: Tahoma, Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 14px;
-    color: #000;
+    color: #2d3748;
+    min-height: 100vh;
 }
 
 .formulario-principal {
@@ -21,113 +22,118 @@ body {
 .contenedor-formulario {
     width: 420px;
     margin: 40px auto;
-    padding: 12px;
-    background: #c0c0c0;
-
-    /* borde 3D clásico */
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #404040;
-    border-bottom: 2px solid #404040;
+    padding: 32px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: none;
 }
 
 /* TÍTULOS */
 .contenedor-formulario h1,
 .contenedor-formulario h2 {
-    margin: 0 0 10px 0;
-    font-size: 14px;
-    font-weight: bold;
+    margin: 0 0 24px 0;
+    font-size: 28px;
+    font-weight: 600;
+    color: #1a202c;
+    letter-spacing: -0.5px;
 }
 
 /* FORM */
 .contenedor-formulario form {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 20px;
 }
 
 /* LABELS */
 .contenedor-formulario label {
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4a5568;
+    margin-bottom: 8px;
+    display: block;
 }
 
 /* INPUTS */
 .contenedor-formulario input[type="text"],
 .contenedor-formulario input[type="password"],
 .contenedor-formulario input[type="email"] {
-    padding: 4px;
-    background: #ffffff;
-    font-size: 13px;
-
-    border-top: 2px solid #404040;
-    border-left: 2px solid #404040;
-    border-right: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
+    padding: 12px 16px;
+    background: #f7fafc;
+    font-size: 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
 /* FOCUS (muy win98) */
 .contenedor-formulario input:focus {
-    outline: 1px dotted #000;
+    outline: none;
+    border-color: #667eea;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 /* RADIOS */
 .grupo-radio {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 12px;
 }
 
 .grupo-radio label {
     font-weight: normal;
+    cursor: pointer;
 }
 
 /* BOTÓN */
 .contenedor-formulario button {
     width: 120px;
-    padding: 4px;
+    padding: 12px 24px;
     margin-top: 10px;
-
-    background: #c0c0c0;
-    font-size: 13px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-size: 14px;
     cursor: pointer;
-
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #404040;
-    border-bottom: 2px solid #404040;
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
 /* BOTÓN PULSADO */
 .contenedor-formulario button:active {
-    border-top: 2px solid #404040;
-    border-left: 2px solid #404040;
-    border-right: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
+    transform: translateY(2px);
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+}
+
+.contenedor-formulario button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.5);
 }
 
 /* CONTENEDOR DE INSTRUCCIONES */
 .instrucciones-formulario {
     width: 420px;
     margin: 20px auto;
-    padding: 10px;
+    padding: 24px;
     height: min-content;
-
-    background: #c0c0c0;
-
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #404040;
-    border-bottom: 2px solid #404040;
-
-    font-family: Tahoma, Arial, sans-serif;
-    font-size: 13px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
 }
 
 /* TÍTULO */
 .instrucciones-formulario h2 {
-    margin: 0 0 10px 0;
-    font-size: 13px;
-    font-weight: bold;
+    margin: 0 0 20px 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: #1a202c;
 }
 
 /* LISTA DEFINICIÓN */
@@ -137,177 +143,182 @@ body {
 
 /* TÉRMINOS */
 .instrucciones-formulario dt {
-    margin-top: 8px;
-    font-weight: bold;
+    margin-top: 16px;
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 15px;
 }
 
 /* DESCRIPCIONES */
 .instrucciones-formulario dd {
     margin-left: 12px;
-    margin-top: 2px;
+    margin-top: 6px;
+    color: #4a5568;
+    line-height: 1.6;
 }
 
 .contenedor-tabla {
     width: 90%;
     max-width: 900px;
     margin: 20px auto;
-    padding: 10px;
-
-    background: #c0c0c0;
-
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #404040;
-    border-bottom: 2px solid #404040;
-
-    font-family: Tahoma, Arial, sans-serif;
-    font-size: 13px;
+    padding: 32px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
 }
 
 .contenedor-tabla h2 {
-    margin: 0 0 6px 0;
-    font-size: 13px;
-    font-weight: bold;
+    margin: 0 0 16px 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a202c;
 }
 
 .contenedor-tabla hr {
     border: none;
-    border-top: 2px solid #404040;
-    border-bottom: 2px solid #ffffff;
-    margin-bottom: 10px;
+    border-top: 1px solid #e2e8f0;
+    margin-bottom: 24px;
 }
 
 #mi-tabla-datos {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    background: #c0c0c0;
+    background: transparent;
 }
 
 /* CABECERAS */
 #mi-tabla-datos th {
-    padding: 4px;
+    padding: 16px 12px;
     text-align: left;
-    font-weight: bold;
-    background: #c0c0c0;
+    font-weight: 600;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
 
+
+#mi-tabla-datos th:last-child {
+    border-radius: 0 8px 0 0;
 }
 
 /* CELDAS */
 #mi-tabla-datos td {
-    padding: 4px;
-
-    background: #ffffff;
-
-    border-top: 2px solid #404040;
-    border-left: 2px solid #404040;
-    border-right: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
+    padding: 14px 12px;
+    background: #f7fafc;
+    border: none;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 /* FILAS AL PASAR EL RATÓN */
 #mi-tabla-datos tbody tr:hover td {
-    background: #e0e0e0;
+    background: #edf2f7;
 }
 
 #filtro {
-    width: 100%;
-    padding: 4px;
-    font-size: 13px;
+    width: 80%;
+    padding: 12px 16px;
+    font-size: 14px;
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
 
+#filtro:focus {
+    outline: none;
+    border-color: #667eea;
     background: #ffffff;
-
-    border-top: 2px solid #404040;
-    border-left: 2px solid #404040;
-    border-right: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .resaltado {
-    background: #ffff00;
-    /* amarillo clásico */
+    background: #fef5e7;
     color: #000;
+    font-weight: 600;
+    padding: 2px 4px;
+    border-radius: 4px;
 }
 
-
 #mi-tabla-datos button {
-    padding: 2px 6px;
+    padding: 8px 14px;
     font-size: 12px;
-    margin-right: 4px;
-
-    background: #c0c0c0;
+    margin-right: 6px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     cursor: pointer;
-
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #404040;
-    border-bottom: 2px solid #404040;
+    border: none;
+    border-radius: 6px;
+    color: #ffffff;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 #mi-tabla-datos button:active {
-    border-top: 2px solid #404040;
-    border-left: 2px solid #404040;
-    border-right: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
+    transform: scale(0.95);
+}
+
+#mi-tabla-datos button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
 #form-editar {
-
-    margin-top: 16px;
-    padding: 10px;
-
-    background: #c0c0c0;
-
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #404040;
-    border-bottom: 2px solid #404040;
-
-    font-family: Tahoma, Arial, sans-serif;
-    font-size: 13px;
+    margin-top: 24px;
+    padding: 24px;
+    background: #f7fafc;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
 }
 
 #form-editar h3 {
-    margin: 0 0 10px 0;
-    font-size: 13px;
-    font-weight: bold;
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a202c;
 }
 
 #form-editar input[type="text"],
 #form-editar input[type="date"] {
     width: 200px;
-    padding: 4px;
-    font-size: 13px;
-
+    padding: 10px 14px;
+    font-size: 14px;
     background: #ffffff;
-
-    border-top: 2px solid #404040;
-    border-left: 2px solid #404040;
-    border-right: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
 #form-editar input:focus {
-    outline: 1px dotted #000;
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 #form-editar button {
-    margin-top: 8px;
-    padding: 4px 10px;
-    font-size: 13px;
-
-    background: #c0c0c0;
+    margin-top: 16px;
+    padding: 10px 20px;
+    font-size: 14px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     cursor: pointer;
-
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #404040;
-    border-bottom: 2px solid #404040;
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 #form-editar button:active {
-    border-top: 2px solid #404040;
-    border-left: 2px solid #404040;
-    border-right: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
+    transform: scale(0.95);
+}
+
+#form-editar button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
 }
