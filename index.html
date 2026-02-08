@@ -7,6 +7,7 @@
     <title>Formulario</title>
     <link rel="shortcut icon" href="logoSTTblanco.webp" type="image/x-icon">
 </head>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="stylesheet" href="styles.css">
 <header id="navbar"></header>
 
@@ -17,7 +18,7 @@
                 <h1>Hoja 1</h1>
                 <h2>Formulario</h2>
 
-                <form method="post" action="ws/crearUsuario2.php">
+                <form method="post" id="formCrearUsuario" action="ws/crearUsuario2.php">
 
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" required>
@@ -84,8 +85,9 @@
         <p>Footer</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    
 </body>
+<script src="js/script.js"></script>
 <script src="js/nav.js"></script>
 
 

@@ -7,6 +7,70 @@ document.addEventListener("DOMContentLoaded", function () {
     const formEditar = document.getElementById("form-editar");
     const cancelarBtn = document.getElementById("cancelar-edicion");
 
+
+    const formCrear = document.getElementById("formCrearUsuario");
+
+    if (formCrear) {
+        formCrear.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            confirmarCreacion();
+        });
+    }
+
+    function confirmarCreacion() {
+        Swal.fire({
+            title: '¿Crear usuario?',
+            text: 'Se añadirá un nuevo usuario a la base de datos',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, crear',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                enviarCreacion();
+            }
+        });
+    }
+    function enviarCreacion() {
+        const form = document.getElementById("formCrearUsuario");
+        const formData = new FormData(form);
+
+        fetch("ws/crearUsuario2.php", {
+            method: "POST",
+            body: formData
+        })
+            .then(response => response.json())
+            .then(res => {
+                if (res.success) {
+                    Swal.fire(
+                        'Creado',
+                        res.message,
+                        'success'
+                    );
+
+                    form.reset();
+                    cargarUsuarios(); // refresca la tabla
+                } else {
+                    Swal.fire(
+                        'Error',
+                        res.message,
+                        'error'
+                    );
+                }
+            })
+            .catch(() => {
+                Swal.fire(
+                    'Error',
+                    'No se pudo conectar con el servidor',
+                    'error'
+                );
+            });
+    }
+
+
+
+
     function renderizarTabla(lista, textoFiltro = "") {
         if (!cuerpoTabla) return;
 
@@ -68,9 +132,19 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             if (boton.classList.contains("eliminar")) {
-                if (confirm("¿Eliminar usuario?")) {
-                    eliminarUsuario(id);
-                }
+                Swal.fire({
+                    title: '¿Eliminar usuario?',
+                    text: 'Esta acción no se puede deshacer',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Sí, eliminar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        eliminarUsuario(id);
+                    }
+                });
+
             }
         });
     }
@@ -134,7 +208,8 @@ document.addEventListener("DOMContentLoaded", function () {
             };
 
 
-            enviarModificacion(usuario);
+            confirmarModificacion(usuario);
+
         });
     }
 
@@ -143,6 +218,21 @@ document.addEventListener("DOMContentLoaded", function () {
             formEditar.style.display = "none";
         });
     }
+    function confirmarModificacion(usuario) {
+        Swal.fire({
+            title: '¿Guardar cambios?',
+            text: 'Se modificarán los datos del usuario',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, guardar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                enviarModificacion(usuario);
+            }
+        });
+    }
+
 
     function enviarModificacion(usuario) {
         const xhr = new XMLHttpRequest();
@@ -151,6 +241,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         xhr.onload = function () {
             const res = JSON.parse(xhr.responseText);
+
             if (res.success) {
                 usuarios = usuarios.map(u =>
                     u.id == usuario.id
@@ -160,13 +251,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 formEditar.style.display = "none";
                 renderizarTabla(usuarios);
+
+                Swal.fire(
+                    'Actualizado',
+                    res.message,
+                    'success'
+                );
+
+            } else {
+                Swal.fire(
+                    'Error',
+                    res.message,
+                    'error'
+                );
             }
+        };
+
+        xhr.onerror = function () {
+            Swal.fire(
+                'Error',
+                'No se pudo conectar con el servidor',
+                'error'
+            );
         };
 
         xhr.send(
             `id=${usuario.id}&nombre=${usuario.nombre}&apellidos=${usuario.apellidos}&telefono=${usuario.telefono}&email=${usuario.email}&sexo=${usuario.sexo}&fecha_nacimiento=${usuario.fecha_nacimiento}`
         );
     }
+
 
     function eliminarUsuario(id) {
         const xhr = new XMLHttpRequest();
@@ -177,6 +290,12 @@ document.addEventListener("DOMContentLoaded", function () {
             const res = JSON.parse(xhr.responseText);
             if (res.success) {
                 usuarios = usuarios.filter(u => u.id !== id);
+                Swal.fire(
+                    'Eliminado',
+                    'El usuario ha sido eliminado correctamente',
+                    'success'
+                );
+
                 renderizarTabla(usuarios);
             }
         };
@@ -186,3 +305,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     cargarUsuarios();
 });
+
+
