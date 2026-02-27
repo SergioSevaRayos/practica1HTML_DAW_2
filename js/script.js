@@ -6,13 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const filtroInput = document.getElementById("filtro");
     const formEditar = document.getElementById("form-editar");
     const cancelarBtn = document.getElementById("cancelar-edicion");
-
-
     const formCrear = document.getElementById("formCrearUsuario");
 
     if (formCrear) {
         formCrear.addEventListener("submit", function (e) {
-            e.preventDefault();
+            e.preventDefault(); // Por defecto cuando haces submit un formulario recarga la página, y e.preventDefault() evita esa recarga para que podamos gestionar el envío nosotros mismos con JavaScript.
 
             confirmarCreacion();
         });
@@ -165,6 +163,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    
     function resaltarTexto(texto, filtro) {
         if (!texto || !filtro) return texto ?? "";
 

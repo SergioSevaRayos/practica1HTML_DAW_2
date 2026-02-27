@@ -9,8 +9,8 @@ class Database
         if (self::$connection === null) {
             $host = "localhost";
             $dbname = "colegio";
-            $user = "colegio_user";
-            $password = "colegio123";
+            $user = "root";
+            $password = "";
 
             $dsn = "mysql:host=127.0.0.1;port=3306;dbname=$dbname;charset=utf8mb4";
 
