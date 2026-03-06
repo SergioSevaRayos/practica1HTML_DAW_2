@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . "/Database.php";
+require_once __DIR__ . "/models/UserModel.php";
 
 class User
 {
@@ -7,26 +8,48 @@ class User
 
     public function __construct()
     {
-        $this->db = (new Database())->getConnection();
+        $this->db = Database::getConnection();
     }
 
-    public function getById(int $id): ?array
+    // Convierte una fila de la BD en un objeto UserModel
+    private function rowToModel(array $row): UserModel
+    {
+        return new UserModel(
+            $row["nombre"],
+            $row["apellidos"],
+            $row["password"],
+            $row["telefono"] ?? null,
+            $row["email"] ?? null,
+            $row["sexo"] ?? null,
+            $row["fecha_nacimiento"] ?? null,
+            (int) $row["id"]
+        );
+    }
+
+    // Obtener un alumno por id
+    public function getById(int $id): ?UserModel
     {
         $sql = "SELECT * FROM alumno WHERE id = :id";
         $stmt = $this->db->prepare($sql);
         $stmt->execute(["id" => $id]);
 
-        $alumno = $stmt->fetch();
-        return $alumno ?: null;
+        $row = $stmt->fetch();
+        return $row ? $this->rowToModel($row) : null;
     }
+
+    // Obtener todos los alumnos
     public function getAll(): array
     {
         $sql = "SELECT * FROM alumno";
         $stmt = $this->db->query($sql);
 
-        return $stmt->fetchAll();
+        return array_map(
+            fn($row) => $this->rowToModel($row),
+            $stmt->fetchAll()
+        );
     }
 
+    // Crear un alumno
     public function create(array $data): int
     {
         $sql = "INSERT INTO alumno 
@@ -39,6 +62,8 @@ class User
 
         return (int) $this->db->lastInsertId();
     }
+
+    // Modificar un alumno
     public function update(int $id, array $data): bool
     {
         $campos = [];
@@ -55,6 +80,7 @@ class User
         return $stmt->execute($params);
     }
 
+    // Eliminar alumno
     public function delete(int $id): bool
     {
         $sql = "DELETE FROM alumno WHERE id = :id";
@@ -62,8 +88,4 @@ class User
 
         return $stmt->execute(["id" => $id]);
     }
-
-
-
-
 }

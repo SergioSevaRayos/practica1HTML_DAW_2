@@ -1,8 +1,14 @@
 <?php
 
+// Clase que gestiona la conexión a una BD
 class Database
 {
     private static ?PDO $connection = null;
+    /*
+    $connection es una propiedad estática que almacena la conexión. 
+    es "static" porque pertenece a la clase y no a una instancia concreta, 
+    y es ?PDO porque puede ser "null" si todavía no se ha conectado.
+    */
 
     public static function getConnection(): PDO
     {

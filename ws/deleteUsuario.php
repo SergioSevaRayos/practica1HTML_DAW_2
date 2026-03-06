@@ -1,7 +1,7 @@
 <?php
-require_once "Database.php";
-
 header("Content-Type: application/json");
+
+require_once __DIR__ . "/User.php";
 
 try {
     // Validar id
@@ -15,35 +15,36 @@ try {
 
     $id = (int) $_POST["id"];
 
-    // Conexión a la BD
-    $db = Database::getConnection();
+    // Usamos la clase User para verificar si existe el alumno
+    $user = new User();
+    $alumno = $user->getById($id);
 
-    // Comprobar si existe el alumno
-    $check = $db->prepare("SELECT id FROM alumno WHERE id = :id");
-    $check->bindParam(":id", $id, PDO::PARAM_INT);
-    $check->execute();
-
-    if ($check->rowCount() === 0) {
+    if (!$alumno) {
         echo json_encode([
             "success" => false,
-            "message" => "No existe el alumno"
+            "message" => "No existe el alumno con id $id"
         ]);
         exit;
     }
 
-    // Eliminar alumno
-    $stmt = $db->prepare("DELETE FROM alumno WHERE id = :id");
-    $stmt->bindParam(":id", $id, PDO::PARAM_INT);
-    $stmt->execute();
+    // Usamos el método delete() de la clase User
+    $result = $user->delete($id);
 
-    echo json_encode([
-        "success" => true,
-        "message" => "Alumno eliminado correctamente"
-    ]);
+    if ($result) {
+        echo json_encode([
+            "success" => true,
+            "message" => "Alumno eliminado correctamente"
+        ]);
+    } else {
+        echo json_encode([
+            "success" => false,
+            "message" => "No se pudo eliminar el alumno"
+        ]);
+    }
 
-} catch (PDOException $e) {
+} catch (Throwable $e) {
     echo json_encode([
         "success" => false,
-        "message" => "Error en BD: " . $e->getMessage()
+        "message" => "Error: " . $e->getMessage()
     ]);
 }

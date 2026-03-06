@@ -1,11 +1,11 @@
 <?php
-require_once "Database.php";
-
 header("Content-Type: application/json");
+
+require_once __DIR__ . "/User.php";
 
 try {
     // Leer datos enviados por POST
-    $id = $_POST["id"] ?? null;
+    $id = (int) ($_POST["id"] ?? 0);
     $nombre = $_POST["nombre"] ?? null;
     $apellidos = $_POST["apellidos"] ?? null;
     $telefono = $_POST["telefono"] ?? null;
@@ -13,8 +13,8 @@ try {
     $sexo = $_POST["sexo"] ?? null;
     $fecha = $_POST["fecha_nacimiento"] ?? null;
 
-    // Validación mínima
-    if (!$nombre || !$apellidos) {
+    // Validación mínima incluyendo el id
+    if (!$id || !$nombre || !$apellidos) {
         echo json_encode([
             "success" => false,
             "message" => "Datos incompletos"
@@ -22,44 +22,32 @@ try {
         exit;
     }
 
-    // Conexión a la base de datos
-    $db = Database::getConnection();
-
-    // Consulta SQL (solo los campos que editas)
-    $sql = "
-        UPDATE alumno
-        SET nombre = :nombre,
-            apellidos = :apellidos,
-            telefono = :telefono,
-            email = :email,
-            sexo = :sexo,
-            fecha_nacimiento = :fecha
-        WHERE id = :id
-    ";
-
-    $stmt = $db->prepare($sql);
-
-    // Bind de parámetros
-    $stmt->bindParam(":id", $id, PDO::PARAM_INT);
-    $stmt->bindParam(":nombre", $nombre, PDO::PARAM_STR);
-    $stmt->bindParam(":apellidos", $apellidos, PDO::PARAM_STR);
-    $stmt->bindParam(":telefono", $telefono, PDO::PARAM_STR);
-    $stmt->bindParam(":email", $email, PDO::PARAM_STR);
-    $stmt->bindParam(":sexo", $sexo, PDO::PARAM_STR);
-    $stmt->bindParam(":fecha", $fecha, PDO::PARAM_STR);
-
-    // Ejecutar
-    $stmt->execute();
-
-    // Respuesta OK
-    echo json_encode([
-        "success" => true,
-        "message" => "Alumno modificado correctamente"
+    // Usamos la clase User y su método update()
+    $user = new User();
+    $result = $user->update($id, [
+        "nombre" => $nombre,
+        "apellidos" => $apellidos,
+        "telefono" => $telefono,
+        "email" => $email,
+        "sexo" => $sexo,
+        "fecha_nacimiento" => $fecha
     ]);
 
-} catch (PDOException $e) {
+    if ($result) {
+        echo json_encode([
+            "success" => true,
+            "message" => "Alumno modificado correctamente"
+        ]);
+    } else {
+        echo json_encode([
+            "success" => false,
+            "message" => "No se pudo modificar el alumno"
+        ]);
+    }
+
+} catch (Throwable $e) {
     echo json_encode([
         "success" => false,
-        "message" => "Error en BD: " . $e->getMessage()
+        "message" => "Error: " . $e->getMessage()
     ]);
 }

@@ -11,9 +11,8 @@ try {
         "telefono" => $_POST["telefono"] ?? null,
         "email" => $_POST["email"] ?? null,
         "sexo" => $_POST["sexo"] ?? null,
-        "fecha_nacimiento" => date("Y-m-d") 
+        "fecha_nacimiento" => date("Y-m-d")
     ];
-
 
     // Validación mínima
     if (!$data["nombre"] || !$data["apellidos"] || !$data["password"]) {
@@ -25,15 +24,14 @@ try {
         exit;
     }
 
-
     $user = new User();
     $id = $user->create($data);
-    $alumno = $user->getById($id);
+    $alumno = $user->getById($id); // devuelve un objeto UserModel
 
     echo json_encode([
         "success" => true,
         "message" => "Alumno creado correctamente",
-        "data" => $alumno
+        "data" => $alumno->toArray() // convertimos el objeto UserModel a array para json_encode
     ]);
 
 } catch (Throwable $e) {

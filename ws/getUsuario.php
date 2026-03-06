@@ -10,7 +10,7 @@ try {
     if (isset($_GET["id"])) {
 
         $id = (int) $_GET["id"];
-        $alumno = $user->getById($id);
+        $alumno = $user->getById($id); // devuelve un objeto UserModel o null
 
         if (!$alumno) {
             echo json_encode([
@@ -24,18 +24,18 @@ try {
         echo json_encode([
             "success" => true,
             "message" => "Alumno encontrado",
-            "data" => $alumno
+            "data" => $alumno->toArray() // convertimos el objeto UserModel a array para json_encode
         ]);
         exit;
     }
 
     // Caso 2: no se recibe id → todos los alumnos
-    $alumnos = $user->getAll();
+    $alumnos = $user->getAll(); // devuelve un array de objetos UserModel
 
     echo json_encode([
         "success" => true,
         "message" => "Lista completa de alumnos",
-        "data" => $alumnos
+        "data" => array_map(fn($u) => $u->toArray(), $alumnos) // convertimos cada UserModel a array
     ]);
 
 } catch (Throwable $e) {

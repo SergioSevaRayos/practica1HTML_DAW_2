@@ -21,7 +21,7 @@ window.onload = function () { // <-- espera a que cargue la página
             enlaces.forEach(enlace => { // <-- iteramos sobre cada "<a>" almacenados en la variable "enlaces"
                 const href = enlace.getAttribute("href"); // <-- obtiene el href de cada enlace 
                 if (href === rutaActual) { // <-- compara con la ruta actual 
-                    enlace.classList.add("activo"); // <-- añade la case css "activo"
+                    enlace.classList.add("activo"); // <-- añade la clase css "activo"
                 }
             });
 // FIN - MOSTRAR 
